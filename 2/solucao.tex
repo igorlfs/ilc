@@ -1,0 +1,208 @@
+\documentclass[12pt]{article}
+\usepackage{indentfirst} %% Indente o primeiro parágrafo
+\usepackage{amsfonts} %% Conjuntos
+%%\usepackage{etoolbox} ?
+%%\usepackage{amssymb}
+\usepackage{amssymb} %% QED
+\usepackage{enumitem}
+\let\biconditional\leftrightarrow
+\setlength{\emergencystretch}{30pt}
+\setlist{  listparindent=\parindent }
+\AtBeginEnvironment{quote}{\par\singlespacing\small} %% Faz citações terem formatação diferente
+\title{Lista 0.2}
+\author{Igor Lacerda}
+\begin{document}
+\maketitle
+\section*{Nota}
+Algumas notações que decidi adotar na lista: \textit{representar verdadeiro com 1 e falso com 0.}
+
+\section*{Revisão (1) + Exercícios}
+\begin{enumerate}
+    \item 
+        \begin{enumerate}
+            \item Duas proposições compostas \( p \) e \( q \) são equivalentes se, e somente se, a bicondicional entre elas for uma tautologia. Em outras palavras, \( p \) é equivalente a \( q\) se para todos os valores que todas as suas propoposições atômicas podem assumir, \( p \) e \( q\) assumem o mesmo valor.
+
+            \item Uma proposição composta é satisfázel se existe uma ``entrada'' que a torna verdadeira. Aqui, entrada deve ser entendido como um conjunto de valores que as proposições atômicas podem assumir. Ela é insatisfazível se toda ``entrada'' a torna falsa, ou seja, se é uma contradição.
+        \end{enumerate}
+    \item 
+        \begin{enumerate}
+            \item \( p \lor (p \land q) \equiv p\) 
+                \begin{center}
+                    \begin{tabular}{||c c || c c||} 
+                        \hline
+                        \( p \)  & \( q \) & \( p \land q  \) & \( p \lor  (p \land q) \) \\ [0.5ex]
+                        \hline\hline
+                        0 & 0 & 0 & 0 \\ 
+                        \hline
+                        0 & 1 & 0 & 0 \\
+                        \hline
+                        1 & 0 & 0 & 1 \\
+                        \hline
+                        1 & 1 & 1 & 1 \\ [1ex]
+                        \hline
+                    \end{tabular}
+                \end{center}
+            \item \( p \land (p \lor q) \equiv p\) 
+                \begin{center}
+                    \begin{tabular}{||c c || c c||} 
+                        \hline
+                        \( p \)  & \( q \) & \( p \lor q  \) & \( p \land  (p \lor q) \) \\ [0.5ex]
+                        \hline\hline
+                        0 & 0 & 0 & 0 \\ 
+                        \hline
+                        0 & 1 & 1 & 0 \\
+                        \hline
+                        1 & 0 & 1 & 1 \\
+                        \hline
+                        1 & 1 & 1 & 1 \\ [1ex]
+                        \hline
+                    \end{tabular}
+                \end{center}
+        \end{enumerate}
+    \item 
+        \begin{enumerate}
+            \item \(\models \neg (p \oplus q) \equiv p \biconditional q \) 
+
+                Pela definição de \textit{ou exclusivo,} temos:
+
+                \[ \neg p \oplus q \equiv \neg ((p \lor q) \land \neg (p \land q))\] 
+
+                Pelo princípio de De Morgan:
+
+                \[\neg ((p \lor q) \land \neg (p \land q)) \equiv (\neg(p \lor q)) \lor (\neg (\neg (p \land q))) \]
+
+                \sloppy Aplicando de novo o mesmo princípio e usando a negação da negação:
+
+                \[(\neg(p \lor q)) \lor (\neg (\neg (p \land q))) \equiv (\neg p \land \neg q) \lor (p \land q)\]
+
+                Usando a comutatividade:
+
+                \[(\neg p \land \neg q) \lor (p \land q) \equiv (p \land q) \lor (\neg p \land \neg q)\]
+
+                \sloppy Mas pelas aulas (minuto 17 de equivalências; penúltima fórmula da segunda tabela) sabemos que essa última proposição é equivalente a \( p \biconditional q \). 
+
+            \item \( \models (p \to r ) \lor (q \to r ) \equiv (p \land q) \to r \) 
+
+                Expandindo o condicional:
+
+                \[ (p \to r ) \lor (q \to r ) \equiv (\neg p \lor r) \lor ( \neg q \lor r)\] 
+
+                Rearranjando os termos:
+
+                \[ (\neg p \lor r) \lor ( \neg q \lor r) \equiv (\neg p \lor \neg q) \lor (r \lor r)\] 
+
+                \( r \lor r \) é equivalente a \( r \):
+
+                \[ (\neg p \lor \neg q) \lor (r \lor r) \equiv (\neg p \lor \neg q) \lor r \] 
+
+                Mais uma vez pelo Princípio de De Morgan:
+
+                \[ (\neg p \lor \neg q) \lor r \equiv \neg(p \land q) \lor r\] 
+
+                Agora ``reduzimos'' o condicional:
+                \[  \neg(p \land q) \lor r \equiv (p \land q ) \to r \] 
+                \begin{flushright} \( \blacksquare\) \end{flushright} 
+        \end{enumerate}
+
+    \item \( \models (p \to q) \to r \not\equiv  p \to (q \to r)\) 
+
+        \textit{Tentei ser espertinho e evitar uma tabela verdade}, mas acho que vou usar uma sim.
+
+        \begin{center}
+            \begin{tabular}{||c c c || c c c c ||} 
+                \hline
+                \( p \)  & \( q \) & \( r \) & \( p \to q  \) & \( q \to  r \) & \( (p \to q) \to r \) & \( p \to (q \to r)\)  \\ [0.5ex]
+                \hline\hline
+                0 & 0 & 0 & 1 & 1 & 0 & 1 \\ 
+                \hline
+                0 & 0 & 1 & 1 & 1 & 1 & 1 \\
+                \hline
+                0 & 1 & 0 & 1 & 0 & 0 & 1 \\
+                \hline
+                0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+                \hline
+                1 & 0 & 0 & 0 & 1 & 1 & 1 \\ 
+                \hline
+                1 & 0 & 1 & 0 & 1 & 1 & 1 \\
+                \hline
+                1 & 1 & 0 & 1 & 0 & 0 & 0 \\
+                \hline
+                1 & 1 & 1 & 1 & 1 & 1 & 1 \\ [1ex]
+                \hline
+            \end{tabular}
+        \end{center}
+
+        \textit{Olha só. Nem era tão difícil de pensar num exemplo em que seus valores são diferentes. Têm vários.} A primeira proposição não é equivalente à segunda porque se \( p, q \textnormal{ e } r \) são falsas, \( p \to q \) é verdadeira e consequentemente \( (p \to q) \to r \) é falsa. Por outro lado, como \( p \) é falsa, \( p \to (q \to r) \) é verdadeira.
+
+    \item \( \models ((p \to q) \land (q \to r)) \to (p \to r) \equiv T \) 
+
+        \textit{Apesar de não explicitar aqui, a minha manipulação de conectivos lógicos não foi muito satisfatória.} Usando uma tabela verdade (e mais, usando a tabela anterior como referência também):
+
+        \begin{center}
+            \begin{tabular}{|c c c | c c c |} 
+                \hline
+                \( p \)  & \( q \) & \( r \) & \( p \to q \land q \to r \) & \( p \to r \) & \( ((p \to q) \land (q \to r)) \to ( p \to r) \) \\ [0.5ex]
+                \hline\hline
+                0 & 0 & 0 & 1 & 1 & 1 \\ 
+                \hline
+                0 & 0 & 1 & 1 & 1 & 1 \\
+                \hline
+                0 & 1 & 0 & 0 & 1 & 1 \\
+                \hline
+                0 & 1 & 1 & 1 & 1 & 1 \\
+                \hline
+                1 & 0 & 0 & 0 & 0 & 1 \\ 
+                \hline
+                1 & 0 & 1 & 0 & 1 & 1 \\
+                \hline
+                1 & 1 & 0 & 0 & 0 & 1 \\
+                \hline
+                1 & 1 & 1 & 1 & 1 & 1 \\ [1ex]
+                \hline
+            \end{tabular}
+        \end{center}
+
+        Como os valores da última coluna são compostos somente de 1s, a proposição correspondente é uma tautologia. Achei mais fácil assim mesmo, com a tabela.
+
+    \item 
+        Construindo a tabela do \textit{ou exclusivo.}
+
+        \begin{center}
+            \begin{tabular}{||c c || c||} 
+                \hline
+                \( p \)  & \( q \) & \( p \oplus q \) \\ [0.5ex]
+                \hline\hline
+                0 & 0 & 0  \\ 
+                \hline
+                0 & 1 & 1  \\
+                \hline
+                1 & 0 & 1  \\
+                \hline
+                1 & 1 & 0  \\ [1ex]
+                \hline
+            \end{tabular}
+        \end{center}
+
+        Construindo as proposições por linha cuja saída é verdaeira, na ordem que aparecem):
+
+        \begin{itemize}
+            \item \( \neg p \land q\) 
+            \item \( p \land \neg q \) 
+        \end{itemize}
+
+        Assim, chegamos na proposição \( (\neg p \land q) \lor (p \land \neg q) \), que é verdadeira pra \( p \) falso e \( q \) verdadeiro e também verdadeira pra \( p \) verdadeiro e \( q \) falso (e somente desses modos).
+
+    \item Seja \( p \) uma proposição composta qualquer. Como \( p \) é composta, existem \( q_1, q_2, \mathellipsis,q_n \) proposições atômicas que a compõe (\( n > 1\)), de modo que podemos criar uma tabela verdade e subsequentemente a sua \textbf{forma normal disjuntiva} (como a do exercício anterior) de \( p \). O exercício anterior afirma, (sem explicar), que a forma normal disjuntiva (FND) é equivalente à proposição a qual se originou. Além disso, a FND usa somente os conectivos \( \land, \lor \textnormal{ e } \neg \). Assim, qualquer proposição composta \( p \) é equivalente a uma proposição que usa apenas esses três conectvios e, portanto, essa coleção é funcionalmente completa. E mais: usando as Leis de De Morgan, podemos ainda provar que é possível remover um dos operadores (\( \land \textnormal{ ou } \lor \)) e ainda sim ter uma coleção funcionalmente completa.
+
+    \item 
+        \begin{enumerate}
+            \item Essa proposição é satisfazível. Basta tomar \( p \) como verdadeiro e \( s \) como falso e \( q \) e \( r \) podem assumir qualquer valor. \( p \) verdadeiro só não garante o quarto ``bloco'' da disjunção como verdadeiro, e esse é justamente o papel de \( s \) ser falso.
+
+            \item Essa proposição \textit{também} é satisfazível. Basta tomar \( r \) como verdadeiro, \( q \) como verdadeiro e \( s \) como falso, \( p \) como verdadeiro. \( r = 1 \) garante (i. e., torna verdaeiro) o primeiro bloco, \( q = 1 \) garante o segundo bloco, \( p = 1 \) garante os blocos 3, 5 e 6 e o bloco restante é garantido por \( s = 0 \).
+        \end{enumerate}
+
+    \item Se um algoritmo é usado para definir se uma proposição composta é satifazível, então ele possui a capacidade de avaliar se uma dada proposição é \textit{sempre} falsa. Desse modo, se é desejado saber se uma proposição \( p \) é uma tautologia, pode se dar como entrada para esse algoritmo a negação de \( p\). Se o algoritmo der saída de que \( \neg p \) é uma contradição, então \( p \) é uma tautologia.
+
+\end{enumerate}
+
+\end{document}

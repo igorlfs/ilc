@@ -1,0 +1,159 @@
+\documentclass{article}
+\usepackage{indentfirst} %% Indente o primeiro parágrafo
+\usepackage{amsfonts} %% Conjuntos
+%%\usepackage{etoolbox} ?
+%%\usepackage{amssymb}
+\usepackage{amssymb} %% QED
+\usepackage{enumitem}
+\let\biconditional\leftrightarrow
+\setlength{\emergencystretch}{30pt}
+\setlist{  listparindent=\parindent }
+\AtBeginEnvironment{quote}{\par\singlespacing\small} %% Faz citações terem formatação diferente
+\title{Lista 0.3}
+\author{Igor Lacerda}
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item 
+        \begin{enumerate}
+            \item Um predicado é qualquer mapeamento que associa um conjunto ordenado de variáveis a um único valor: verdadeiro ou falso. Um exemplo de predicado é \(P(x): x < 3 \). O predicado conta com \textit{variáveis} e cada uma com seu domínio.
+
+            \item Uma proposição é necessariamente verdadeira se não é falsa. Por outro lado, não pode ser atribuido um valor booleano a um predicado. Para remediar essa situação, nós usamos conectivos: \( \forall \) quando queremos que todo elemento de um domínio atenda ao predicado e \( \exists \) quando é suficiente que um único elemento atenda ao predicado.
+        \end{enumerate}
+
+    \item 
+        \begin{enumerate}
+            \item Todas as pessoas que são comediantes são engraçadas
+
+            \item Todas as pessoas são comediantes e são engraçadas
+
+            \item Existe uma pessoa que é comediante e engraçada
+
+            \item Existe uma pessoa que é um comediante e engraçada
+        \end{enumerate}
+
+    \item 
+        \begin{enumerate}
+            \item V
+            \item F
+            \item V
+            \item F
+        \end{enumerate}
+
+    \item \textit{Eu achei essa questõa confusa...}
+
+        \begin{enumerate}
+            \item Definindo como \textit{domínio} os estudantes \textit{da minha}  escola e fazendo \( P(x) \) ser \textit{x já morou no Vietnam,} temos:
+
+                \[ \exists x : P(x) \] 
+
+                De forma semelhante, podemos ter como \textit{domínio} todas as pessoas do mundo, de modo que podemos fazer \( Q(x) \) ser \textit{x é um estudante da minha escola}. Assim temos:
+
+                \[ \exists x : (P(x) \land Q(x)) \] 
+
+                É claro que assim \textit{poderiamos} criar algo semelhante com somente \( Q(x) \). No entanto, não cumpriria o requisito de predicados com duas variáveis. Então fazemos: \( R(x,y) \) ser \textit{x é estudante da minha escola e já morou em y:}
+
+                \[ \exists (x,Vietnam) : R(x,Vietnam) \]
+
+        \end{enumerate}
+
+    \item \( \forall x : P(x) \lor \forall x : Q(x) \not\equiv \forall x : (P(x) \lor Q(x))\) 
+
+        Considere o seguinte contra-exemplo: o domínio são os números naturais, \( P(x) \) é \textit{x é par} e \( Q(x) \) é \textit{x é ímpar}. Nesse caso, como nem todo natural é par, \( \forall x : P(x) \) é falsa e de forma semelhante, como nem todo natural é ímpar, \( \forall x : Q(x) \) é também falsa. Por outro lado, a outra proposição é verdadeira, dado que um natural é \textit{par ou ímpar}.
+
+        Ou seja, basta criar um ou que é ``exclusivo'' mas ``complementar'' (uma forma simples de fazer isso é usando negações) para criar uma situação em que a primeira proposição é falsa mas a segunda é verdadeira, tornando-as assim, inequivalentes.
+
+    \item 
+        \begin{enumerate}
+            \item \( \forall x : (P(x) \to \neg Q(x)) \) 
+            \item \( \forall x : (Q(x) \to R(x)) \) 
+            \item \( \forall x : (P(x) \to \neg R(x)) \)
+            \item Não é verdade que (c) segue de (a) e (b)! O fato de todas as pessoas ignorantes serem convencidas não significa que para ser convencido é necessário ser ignorante, só que se você é ignorante, então você é convencido. Desse modo, é possível que existam pessoas convencidas que não são ignorantes e elas podem ser professores, o que é uma contradição com (c).
+        \end{enumerate}
+
+    \item 
+        \begin{enumerate}
+            \item Para qualquer real, existe um real maior.
+            \item Para quaisquer 2 reais se ambos são não-negativos, seu produto também será não-negativo.
+            \item Para quaisquer 2 reais existe um real que é igual ao produto destes.
+        \end{enumerate}
+
+    \item \( L(x,y) := x \textrm{ ama } y\) 
+        \begin{enumerate}
+            \item \( \forall x : L(x,Jerry) \) 
+
+                Todo mundo ama o Jerry.
+
+            \item \( \forall x : \exists y : L(x,y) \)
+
+                Todo mundo ama alguém.
+
+            \item \( \exists y : \forall x : L(x,y) \)
+
+                Existe alguém que é amado por todos.
+
+            \item \( \forall x : \exists y : \neg L(x,y) \)
+
+                Ninguém ama todo mundo.
+
+            \item \( \exists y : \neg L(Lydia,y)  \)
+
+                Lydia não ama alguém (em particular).
+
+            \item \( \exists y : \forall x \neg L(x,y) \)
+
+                Existe alguém que não é amado por ninguém.
+
+            \item \( \exists y : \forall x : (L(x,y) \land \forall z : \forall w : (L(w,z) \to z = y)) \) 
+
+                Existe alguém que é amado por todos e todos os que são amados por todos são essa pessoa (ou seja, só existe uma pessoa que é amada por todos).
+
+            \item \( \exists A : (L(Lynn,A) \land \exists B \neq A : L(Lynn,B) \land \forall x : (L(Lynn, x) \to (x = A \lor x = B))) \)
+
+                Lynn ama A e B, e toda pessoa que Lynn ama é A ou B.
+
+            \item \( \forall x : L(x,x) \)
+
+                Todo mundo ama a si mesmo.
+
+            \item \( \exists x : (L(x,x) \land \forall y : (P(x,y) \to y = x) \)
+
+                Existe alguém que ama a si mesmo e que toda pessoa que ela ama é ela mesma.
+                %% Poderia ter usado bicondicional
+        \end{enumerate}
+
+    %% Essa questão é bem complicada
+    %% Se for revisar, dê atenção aqui
+    \item 
+        \begin{enumerate}
+            \item \( A(\textrm{Lois, Prof. Michael}) \)
+            \item \( \forall x : (S(x) \to A(x,\textrm{Prof. Gross}))\)
+            \item \( \forall x : (F(x) \to (A(x,\textrm{Prof. Miller}) \lor A(\textrm{Prof. Miller},x))) \)
+            \item \( \exists x : S(x) \land \forall y : (F(y) \to \neg A(x,y)) \)
+            \item \( \exists x : (F(x) \land \forall y : S(y) \to \neg A(y,x)) \)
+            \item \( \forall x : (F(x) \to \exists y : S(y) \land A(y,x)) \)
+            \item \( \exists x : (F(x) \land \forall y \neq x : (F(y) \land A(x,y)))\)
+            \item \( \exists x : (S(x) \land \forall y : (F(y) \to \neg A(y,x))) \)
+        \end{enumerate}
+
+    \item 
+        \begin{enumerate}
+            \item \( \exists x : \forall y : \exists z : \neg T(x,y,z) \)
+            \item \( \exists x : \forall y : \neg P(x,y) \land \exists x : \forall y : \neg Q(x,y) \)
+            \item \( \exists x : \forall y : ( \neg P(x,y) \lor \forall z : \neg R(x,y,z)) \)
+            \item \( \exists x : \forall y : (P(x,y) \land \neg Q(x,y)) \)
+        \end{enumerate}
+
+    \item Seja \( P(x,y) \) o predicado: \textit{x tem y raízes em \( \mathbb{R} \)}, considere como \textit{domínio} de x todos os polinômios quadráticos com coeficientes em \( \mathbb{R} \) e como domínio de y os naturais. Assim podemos escrever:
+        \[ \forall x : P(x,0) \lor P(x,1) \lor P(x,2) \]
+
+    \item Seja \( P(x) \) o predicado: \textit{x é o atual rei da França}, cujo domínio são todas as pessoas; e seja \( Q(x) \) o predicado: \textit{x é careca}, com o mesmo domínio. Então temos:
+        \[ \forall x : (P(x) \to Q(x)) \]
+
+        Essa proposição é \textit{verdadeira.} Como em todo elemento do domínio \( P(x) \) é falsa, então \( (P(x) \to Q(x)) \) é sempre \textit{verdadeira}. Para ver que esse é o caso, podemos ainda considerar sua negação: existe alguém que é o atual rei da França e que não é careca. O problema dessa afirmação é que não existe um atual rei da França, então não tem como ele ser ou não careca.
+
+        Similarmente, se a proposição fosse \textit{``O atual rei da França não é careca''}, ela \textit{também} seria verdadeira! De novo: se ela \textit{fosse} falsa, sua \textit{negação seria verdadeira} e portanto nós poderiamos dar um contra-exemplo de um rei atual da França que é careca. Mas \textit{não tem como} dar esse contra-exemplo, pois não existe um rei atual da França!
+
+\end{enumerate}
+
+\end{document}

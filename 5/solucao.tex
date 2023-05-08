@@ -1,0 +1,137 @@
+\documentclass{article} 
+\usepackage{hyperref}       %% Use links
+\usepackage{indentfirst}    %% Indente o primeiro parágrafo
+\usepackage{amsfonts}       %% Conjuntos
+\usepackage{amssymb}        %% QED
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}        % Encoding para português 
+\usepackage{lmodern}            % Conserta a fonte para PT
+\usepackage[portuguese]{babel}  % Português
+\usepackage{hyphenat}           % Use hífens corretamente
+
+\hyphenation{mate-mática recu-perar}
+
+\newcommand{\qed}{\hfill\rule{1ex}{1ex}}
+
+\author{Igor Lacerda Faria}
+\begin{document}
+
+\title{\textbf{Lista de Exercícios 0.5}}
+\date{%
+    \( ^1 \)Departamento de Ciência da Computação - Universidade Federal de Minas Gerais (UFMG) - Belo Horizonte - MG - Brasil \\ [3ex]
+    \href{mailto:igorlfs@ufmg.br}{\nolinkurl{igorlfs@ufmg.br}}
+}
+\maketitle
+\section*{Revisão}
+\begin{enumerate}
+
+    \item
+
+        \begin{enumerate}
+
+            \item 
+
+                \begin{enumerate}
+
+                    \item \textbf{Axioma.} Afirmação que é tida como verdadeira sem necessidade de prova. 
+
+                    \item \textbf{Resultado.} Sentença deduzida a partir de outras sentenças (ou axiomas ou outros resultados deduzidos anteriormente).
+
+                    \item \textbf{Teorema.} Um tipo de resultado particularmente importante para alguma área ou teoria.
+
+                    \item \textbf{Proposição.} Afirmação que queremos provar.
+
+                    \item \textbf{Lema.} Um resultado ``menos importante'' de alguma área ou teoria.
+
+                    \item \textbf{Corolário.} Um resultado que segue imediatamente de algum teorema ou lema.
+
+                    \item \textbf{Demonstração.} Método argumentativo que verifica a validade de uma proposição.
+
+                \end{enumerate}
+
+            \item Uma \textbf{demonstração construtiva} não somente mostra a existência de um elemento que satisfaz dada proposição, como também fornece um método para obter tal elemento. Em contrapartida, uma \textbf{demonstração não-construtiva} 
+
+        \end{enumerate}
+
+        \section*{Exercícios}
+
+    \item \( \models m + n \equiv 0 \textrm{ mod}(2)  \land n + p \equiv 0 \textrm{ mod}(2) \Rightarrow m + p \equiv 0 \textrm{ mod}(2)\), com \( m,n,p \in \mathbb{Z} \).
+
+        \[ \exists a_1, a_2 \mid  m + n = 2a_1, n + p = 2a_2\]
+
+        \[ \Rightarrow m + 2n + p = 2(a_1 + a_2) \] 
+
+        \[ \Rightarrow m + p = 2(a_1 + a_2 - n) \] 
+
+        Tomando \( k \in \mathbb{Z} \mid k = a_1 + a_2 - n\), temos: \( m + p = 2k \Rightarrow m + p \) é par. \( \qed \) Demonstração \textbf{direta}.
+
+    \item \textbf{Teorema.} O produto de dois números ímpares é par.
+
+        \textbf{Demonstração.} Sejam \( m, n \in \mathbb{Z} \mid m,n\) são ímpares. Então \( \exists a,b \in \mathbb{Z} \mid m = 2a+1, n = 2b+1 \). Assim, \( mn = (2a+1)(2b+1) = 2(2ab+a+b)+1 \). Tomando \( k = 2ab + a + b \), temos \( mn = 2k + 1 \), ou seja, \( mn \) é ímpar. \( \qed \)
+
+    \item \textbf{Teorema.} Se \( n \) é um quadrado perfeito, então \( n + 2 \) não é.
+
+        \textbf{Demonstração.} Suponha por contradição que, tanto \( n \) como \( n + 2 \) são quadrados perfeitos. Então existem naturais\footnote{Incluindo o 0} \( a,b \mid a^2 = n, b^2 = n + 2 \). Assim, \( b^2 - a^2 = (b+a)(b-a) = 2\). Mas essa equação não possui soluções inteiras. Suponha que ela possui. Então \( b+a \) e \( b - a \) são naturais cujo produto é 2. Mas os únicos naturais com essa propriedade são 1 e 2, e como \( b + a > b - a \), tome \( b + a = 2 \) e \( b - a = 1 \). Substituindo \( b = 1 + a \) na primeira equação, temos: \( 2a + 1 = 2 \Rightarrow 2a = 1\), o que é absurdo pois \( a \in \mathbb{N} \). Portanto, se \( n \) é um quadrado perfeito, \( n + 2 \) não é. \qed
+
+    \item \textbf{Teorema.} A soma de um irracional e um racional é irracional.
+
+        \textbf{Demonstração.} Seja \( w \) um número irracional e \( q \) um número racional. Suponha que sua soma é racional. Ou seja, \( \exists a \in \mathbb{Z} \land b \in \mathbb{Z}^* \mid q + w = \frac{a}{b} \). Assim, podemos fazer \( q + w - q = w \), que pela fechadura da diferença nos racionais é também racional. Ora, mas isso contradiz a hipótese de que \( w \) é irracional. Portanto, a soma de um irracional e um racional é irracional.
+
+    \item \textbf{Proposição.} Se \( x \) é irracional então \( \frac{1}{x} \) é também irracional.
+
+        \textbf{Demonstração.} Por absurdo, supomos que seja possível \( x \) ser um irracional e \( \frac{1}{x} \) ser um racional. Assim, existe um \( q \in \mathbb{Q} \mid q = \frac{1}{x}\). Logo, \( q^{-1} = x \), ou seja, \( x \) é racional, o que contradiz a hipótese. Portanto, se \( x \) é irracional, então \( 1/x \) é também irracional.
+
+    \item \( \models \forall n \in \mathbb{Z} \mid n^3 + 5 \textrm{ é impar, então } n \textrm{ é par}  \)
+
+        \begin{enumerate}
+
+            \item por \textit{contraposição:} se \( n \) é ímpar, então \( n^3 + 5 \) é par. De fato, \( \exists k \in \mathbb{Z} \mid n = 2k + 1\). Como mostrado no exercício (3), o produto de dois ímpares é ímpar, ou seja, \( n^2 \) é ímpar e \( n^2 \cdot n \) também é ímpar. Somando 5 a um número ímpar, obtemos um número par. Assim, finalizamos nossa demonstração por contraposição.
+
+            \item por \textit{contradição:} suponha \( n^3 + 5 \) ímpar e \( n \) ímpar. Argumentando de forma semelhante ao caso anterior, temos que \( n^3 \) é ímpar, e somando 5 chegamos em um número par, o que contradiz um de nossos pressupostos. Assim, finalizamos a nossa demonstração por contradição.
+
+        \end{enumerate}
+
+    \item Se um dos números é 0, já obtemos nosso resultado multiplicando qualquer um dos números restantes por 0. Se os números forem todos positivos (ou negativos), é também trivial o resultado, bastanto tomar qualquer produto. Se há um (ou dois) negativos, basta tomar o produto dos que tem mesmo sinal. Assim, cobrimos todos os casos possíveis e mostramos que num grupo qualquer de 3 números, existe um produto de 2 deles de tal modo que o produto é não negativo. Essa demonstração é não construtiva, não sei qual parte atende à condição.
+
+    \item A proposição ``se \( a \) e \( b \) são números racionais, então \( a^b \) também é racional'' é falsa: tome, por exemplo, \( a = 2 \) e \( b = \frac{1}{2} \). Assim: \( a^b = \sqrt{ 2 } \), que é irracional.
+
+    \item \textbf{Proposição.} \( \not\exists n \in \mathbb{N} \mid n^2 + n^3 = 100\) 
+
+        \textbf{Demontração.} Como \( n \in \mathbb{N} \), então \( n^3,n^2 \) são positivos\footnote{ou 0, mas isso não importa}. Em particular, temos que \( n \leq 4 \), uma vez que \( 5^3 = 125 > 100 \) e \( n^3 > 125 \) para \( n > 5 \). Assim, podemos simplesmente testar todos os casos, na ``força bruta'': \( n = 1 \Rightarrow 1 + 1 \neq 100 \), \( n = 2 \Rightarrow 4 + 8 \neq 100 \), \( n = 3 \Rightarrow 9 + 27 \neq 100 \), e por último, \( n = 4, \Rightarrow 16 + 64 = 80 \neq 100 \). Portanto, não existe tal inteiro.
+
+    \item Suponha \( a = b \), então \( min(a,b) = med(a,b) = max(a,b) \). Suponha \( a \neq b \), e, sem perda de generalidade, suponha \( a < b \). Então \( min(a,b) = a \) e \( max(a,b) = b \), com \( min(a,b) < max(a,b) \). Além disso, 
+
+        \[ \frac{a + a}{2} < \frac{a + b}{2} < \frac{b + b}{2} \] 
+
+        Portanto, \( min(a,b) < med(a,b) < max(a,b) \). Assim, concluimos a prova.
+
+    \item 
+
+        \begin{enumerate}
+
+            \item \textbf{Teorema.} Entre quaisquer dois números racionais distintos, existe um irracional.
+
+                \textbf{Demonstração.} Sejam \( a,b \) números racionais. Sem perda de generalidade, podemos assumir que \( a < b \). Consideramos a seguinte função, cujo domínio de \( x \) são os números reais entre 0 e 1:
+
+                \[ f(x) = (1-x)a + xb \]
+
+                Desse modo, temos uma forma conveniente de representar os números reais entre \( a \) e \( b \). Assim, basta escolher um \( x \) conveniente, de tal modo que \( f(x) \) seja irracional para quaisquer \( a \) e \( b \). Um \( x \) com essa propriedade, é, por exemplo, \( 1/\pi \). Temos:
+                \[ f\left(\frac{1}{\pi}\right) = a + \frac{b - a}{\pi} \] 
+
+                Como \( a \), por definição, é racional, se \( \frac{b-a}{\pi} \) for irracional, pelo exercício (5), a soma será também irracional. Suponha que o número em questão seja racional. Então \( \exists p,q \in \mathbb{Z}, q \neq 0 \mid \frac{b - a}{\pi} = \frac{p}{q}  \). Multiplicando cruzado:
+                \[ q(b - a) = p \cdot \pi \] 
+
+                Isto é,
+
+                \[ \pi = \frac{q(b-a)}{p} \] 
+
+                O que é absurdo, pois \( q/p \) é racional (é o inverso de um racional) e \( b - a \) também é racional (a diferença de racionais), ou seja, estaríamos obtendo que \( \pi \) é racional. Portanto, para obter um número irracional entre quaisquer racionais, basta tomar \( f(\frac{1}{\pi}) \)
+
+            \item Para generalizar a demonstração anterior e obter infinitos irracionais entre os números, podemos tomar \( f(\frac{1}{n\pi}) \), em que \( n \) é um número natural. A demontração para isso segue de forma análoga ao caso anterior: no final chegaríamos no absurdo que \( n \pi \) é racional.
+
+        \end{enumerate}
+
+\end{enumerate}
+
+\end{document}

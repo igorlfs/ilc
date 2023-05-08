@@ -1,0 +1,191 @@
+\documentclass{article} 
+\usepackage{hyperref}       %% Use links
+\usepackage{indentfirst}    %% Indente o primeiro parágrafo
+\usepackage{amsfonts}       %% Conjuntos
+\usepackage{amssymb}        %% QED
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}        % Encoding para português 
+\usepackage{lmodern}            % Conserta a fonte para PT
+\usepackage[portuguese]{babel}  % Português
+\usepackage{hyphenat}           % Use hífens corretamente
+
+\hyphenation{mate-mática recu-perar}
+
+\newcommand{\qed}{\hfill\rule{1ex}{1ex}}
+
+\author{Igor Lacerda Faria}
+\begin{document}
+
+\title{\textbf{Lista de Exercícios 0.6}}
+\date{%
+    \( ^1 \)Departamento de Ciência da Computação - Universidade Federal de Minas Gerais (UFMG) - Belo Horizonte - MG - Brasil \\ [3ex]
+    \href{mailto:igorlfs@ufmg.br}{\nolinkurl{igorlfs@ufmg.br}}
+}
+\maketitle
+\section*{Exercícios}
+\begin{enumerate}
+
+    \item
+
+        \begin{enumerate}
+
+            \item São iguais, possuem os mesmos elementos
+
+            \item São distintos, \( \{1,\{1\}\} \) tem 1 como elemento e \( \{\{1\}\} \) não.
+
+            \item Sâo distintos, \( \emptyset \) não contém nenhum elemento, enquanto que \( \{ \emptyset\} \) contém um elemento.
+
+        \end{enumerate}
+
+    \item 
+
+        \begin{enumerate}
+
+            \item Falsa. Ninguém pertence ao vazio.
+
+            \item Falsa. Vazio não é elemento de \{0\}.
+
+            \item Falsa. O único subconjunto do vazio é o próprio vazio.
+
+            \item Verdadeiro. O vazio é subconjunto de todo conjunto.
+
+            \item Falso. O único elemento de \{0\} é 0.
+
+            \item Falso. Nenhum conjunto é subconjunto próprio de si mesmo.
+
+            \item Verdadeiro. Todo conjunto têm a si mesmo como subconjunto.
+
+        \end{enumerate}
+
+    \item 
+
+        \begin{enumerate}
+
+            \item Verdadeiro. Ora, x é o único elemento de \{x\}.
+
+            \item Verdadeiro. Todo conjunto têm a si mesmo como subconjunto.
+
+            \item Falso. O conjunto que contém dos elementos de um conjunto não (necessariamente) pertence a si mesmo.
+
+            \item Verdadeiro. Um elemento de um conjunto é sempre subconjunto desse tal conjunto.
+
+            \item Verdadeiro. Vazio é subconjunto de todos os conjuntos.
+
+            \item Falso. \{x\} não tem o vazio como um de seus elementos.
+
+        \end{enumerate}
+
+    \item 
+
+        \begin{enumerate}
+
+            \item \( \mathcal{P}(\{a\}) = \{\emptyset,\{a\}\}\)
+
+            \item \( \mathcal{P}(\{a,b\}) = \{\emptyset,\{a\}, \{b\}, \{a,b\}\}\)
+
+            \item \( \mathcal{P}(\{\emptyset,\{\emptyset\}\}) = \{\emptyset,\{\emptyset\}, \{\{\emptyset\}\}, \{\emptyset,\{\emptyset\}\}\}\)
+
+        \end{enumerate}
+
+    \item 
+
+        \begin{enumerate}
+
+            \item \( 2^3 = 8 \) é a cardinalidade do conjunto potência, pois o número de elementos é 3.
+
+            \item \( 2^4 = 8 \) é a cardinalidade do conjunto potência, pois o número de elementos é 4.
+
+            \item O conjunto \( \mathcal{P}(\emptyset) \) possui um elemento ( \(2^0 = 1 \)), então a cardinalidade de \( \mathcal{P}(\mathcal{P}(\emptyset)) \) é \( 2^1 = 2\).
+
+        \end{enumerate}
+
+    \item 
+
+        \begin{enumerate}
+
+            \item \( A \times B = \{ (a,x), (a,y), (b,x), (b,y), (c,x), (c,y), (d,x), (d,y)\} \)
+
+            \item \( B \times A = \{ (x,a), (x,b), (x,c), (x,d), (y,a), (y,b), (y,c), (y,d)\}\)
+
+        \end{enumerate}
+
+    \item Pode-se concluir que alguns dos conjuntos \( A \) ou \( B \) é o conjunto vazio. A cardinalidade do produto cartesiano é 0, então o produto das cardinalidades de \( A \) e \( B \) é também 0. E como um produto só é nulo se um de seus fatores é também nulo, \( A \) ou \( B \) tem 0 elementos.
+
+    \item \( A \times B \times C \) é uma tripla ordeanda, cujo primeira ``coordenada'' é um elemento de \( A \), a 2ª é um elemento de \( B \) e a terceira é um elemento de \( C \). Por outro lado, \( (A \times B) \times C \) é um par ordenado: a 1ª coordenada é um par ordenado do conjunto \( A \times B \) e a 2ª coordenada é um elemento de \( C \).
+
+    \item \( \models \overline{A \cup B} = \overline{A} \cap \overline{B} \)
+
+        \begin{enumerate}
+
+            \item Se \( x \in \overline{A \cup B} \), então \( x \) não pertence nem a \( A \) e nem a \( B \), ou seja, \( x \) está fora de \( A \) e fora de \( B \). Desse modo, \( x \) pertence à interseção do complemento de \( A \) com o complemento de \( B \). Similarmente, se \( x \in \overline{A} \cap \overline{B} \), \( x \) não pertence nem a \( A \) e nem a \( B \), simultaneamente, então não pode pertencer a \( A \) ou \( B \), desse modo, \( x \in \overline{A \cup B} \).
+
+            \item Temos a seguinte tabela:
+
+                \begin{center}
+
+                    \begin{tabular}{c c | c c c c c } 
+
+                        \( A \)  & \( B \) & \( A \cup B  \) & \( \overline{A \cup B} \) & \( \overline{A} \) & \( \overline{B} \) & \( \overline{A} \cap \overline{B} \) \\ [0.5ex]
+                        \hline
+                        1 & 1 & 1 & 0 & 0 & 0 & 0 \\ 
+                        \hline
+                        1 & 0 & 1 & 0 & 0 & 1 & 0 \\
+                        \hline
+                        0 & 1 & 1 & 0 & 1 & 0 & 0 \\
+                        \hline
+                        0 & 0 & 0 & 1 & 1 & 1 & 1 \\ [1ex]
+
+                    \end{tabular}
+
+                \end{center}
+
+                A quarta coluna é igual à última, portanto os conjuntos são iguais.
+
+        \end{enumerate}
+
+    \item 
+
+        \begin{enumerate}
+
+            \item Se \( x \) pertence à união de A e B então \( x \) pertecence à união \( A \cup B \cup C \). Logo, \( \forall x : (x \in (A \cup B) \to x \in (A \cup B \cup C) )\).
+
+            \item Se \( x \) pertence à diferença \( (A \setminus B) \setminus C \), então \( x \not \in B \land x \not \in C \land x \in A\). Por outro lado, se \( x \in A \setminus C\), \( x \in A \land x \not \in C \). Assim, na segunda diferença, elementos de \( B \) são permitidos desde que atendam às outras regras. Desse modo, todo elemento da primeira diferença pertence à segunda.
+
+            \item Se \( x \in (B \setminus A) \cup (C \setminus A) \), então \(( x \in B \land x \not \in A) \lor (x \in C \land x \not \in A) \). Assim, temos: \( (x \in B \lor x \in C) \land x \not \in A\). Aplicando as definições de união e diferença, concluímos que \( x \in (B \cup C) \setminus A \).
+
+        \end{enumerate}
+
+    \item 
+
+        \begin{enumerate}
+
+            \item \( B \subset A \)
+
+            \item \( A \subset B \)
+
+            \item \( A \cap B = \emptyset \)
+
+            \item Não se pode afirmar nada.
+
+            \item \( A = B \)
+
+        \end{enumerate}
+
+    \item 
+
+        \begin{enumerate}
+
+             \item União: \( \mathbb{N} \), Interseção: \( \emptyset \). A união é \( \mathbb{N} \) pois \( A_0 \) é \( \mathbb{N} \) e todos os outros conjuntos estão contidos em \( A_0 \). A interseção é vazia porque para todo \( k \) existe um conjunto \( A_{k+1} \) que não contém \( k \).
+
+             \item União: \( \mathbb{N} \), pois todo conjunto possui o elemento 0 e outro natural, e a família percorre todos os naturais. Interseção: \( 0 \), pois todo conjunto possui 0 como elemento, e o segundo elemento é sempre distinto.
+
+             \item União: \( \mathbb{R}^{+} \), pois podemos tomar \( i \) arbitrariamente grande de modo a conter todos os outros intervalos para \( j < i \), assim contendo todos os positivos até \( i \). Interseção: \( A_1\), pois todo outro conjunto contém o intervalo (0,1).
+
+             \item União: \( A_1 \), pois todo outro conjunto é subconjunto deste. Interseção: \( \emptyset \), pois como em (a), é possível tomar valores arbitrariamente grandes de \( k \) para os quais \( A_{k+1} \) não contém \( k \).
+
+            \end{enumerate}
+        
+\end{enumerate}
+
+\end{document}

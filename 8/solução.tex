@@ -1,0 +1,140 @@
+\documentclass{article} 
+
+\usepackage{graphicx} %% Imagens
+\usepackage{float} %% Coloque imagens em lugares apropriados, ie H
+\usepackage{hyperref}       %% Use links
+\usepackage{indentfirst}    %% Indente o primeiro parágrafo
+\usepackage{amsfonts}       %% Conjuntos
+\usepackage{amssymb}        %% QED
+\usepackage{multicol}       %% Mais de uma coluna
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}        % Encoding para português 
+\usepackage{lmodern}            % Conserta a fonte para PT
+\usepackage[portuguese]{babel}  % Português
+\usepackage{hyphenat}           % Use hifens corretamente
+
+\hyphenation{mate-mática recu-perar}
+
+\graphicspath{ {./img} }
+
+\newcommand{\qed}{\hfill\rule{1ex}{1ex}}
+
+\author{Igor Lacerda Faria}
+
+\begin{document}
+
+\title{\textbf{Lista de Exercícios 0.8}}
+
+\date{%
+\( ^1 \)Departamento de Ciência da Computação - Universidade Federal de Minas Gerais (UFMG) - Belo Horizonte - MG - Brasil \\ [3ex]
+\href{mailto:igorlfs@ufmg.br}{\nolinkurl{igorlfs@ufmg.br}}
+}
+
+\maketitle
+
+\section*{Legenda}
+
+\begin{itemize}
+	\item PIM: Princípio da Indução Matemática;
+	\item HI: Hipótese de Indução;
+	\item TI: Tese de Indução;
+\end{itemize}
+
+\section*{Revisão}
+
+\begin{enumerate}
+
+	\item
+
+	      \begin{enumerate}
+
+		      \item O PIM fraca é um método de demonstração para proposições em \( \mathbb{N} \) que funciona a partir da prova de um caso base e da prova de que se a proposição é verdadeira para um dado \( n = k \), ela também é verdadeira para \( n = k + 1 \).
+
+		      \item O PIM forte é um método de demonstração como o PIM forte, exceto que como hipótese, ao invés de tomar a veracidade de uma proposição para um dado \( n = k \), é assumida a validade da proposição para \( 1 \leq k < m \), que é subsequentemente usada para mostrar a validade de \( n = m \).
+
+		      \item A principal diferença é que as hipóteses do PIM forte são consideravelmente mais fortes (haha), necessitando da validade de toda uma gama de proposições.
+
+		      \item O princípio da boa ordenação é um teorema\footnote{Ou axioma, ele é equivalente ao PIM mas é mais complicado de lidar } que estabelece que qualquer subconjunto (não vazio) dos números naturais possui um menor elemento.
+
+		      \item \textit{Em papel.}
+
+		      \item Dada a validade para um caso inicial e dado que se a proposição é válida para \( n = k \) ela também é válida para \( n = k + 1 \), então ela é válida para todo \( n \) maior ou igual ao caso inicial.
+
+	      \end{enumerate}
+
+	      \section*{Exercícios}
+
+	\item
+
+	      \begin{enumerate}
+
+		      \item \( P(1) : 1^2 = 1 \cdot 2 \cdot 3 / 6 \).
+
+		      \item \( 1 \cdot 2 \cdot 3 / 6 = \frac{2 \cdot 3}{6} = 1 = 1^2 \).
+
+		      \item Para \( n = k, k \in \mathbb{N}, P(k) : 1^2 + 2^2 + \mathellipsis + k^2 = k(k+1)(2k+1)/6 \)
+
+		      \item Que a partir da hipótese é possível concluir a tese.
+
+		      \item \textit{Em papel.}
+
+		      \item Se a fórmula vale para \( n = 1 \) e dado que vale para \( n = k \) também vale para \( n = k + 1 \), é possível cobrir a validade para todos os números naturais.
+
+	      \end{enumerate}
+
+	\item \textit{Em papel.}
+
+	\item \textit{Em papel.}
+
+	\item \textit{Em papel.}
+
+	\item \( \models n \equiv n^5 \mod 5 \)
+
+	      Para \( n = 1 \), essa propridade é válida, uma vez que \( 1 \equiv 1^5 \mod 5 \). Supomos que a proposição vale para \( n = k \), ou seja, \( 5 \mid k^5 - k  \). Para \( n = k + 1 \), temos:
+	      \[ (k+1)^5 - (k+1) = k^5 + 5k^4 + 10k^3 + 10k^2 + 5k + 1 - k - 1  \]
+	      \( \Rightarrow  k^5 + 5k^4 + 10k^3 + 10k^2 + 4k = (k^5 - k) + 5(k^4 + 2k^3 + 2k^2 + k)\). Por hipótese, \( k^5 - k \) é múltiplo de 5, e a segunda parcela também é múltipla de 5. Portanto, conclui-se a tese de indução e a demonstração.
+
+	\item A Lei de De Morgan é um dos casos base. O outro é trivial: \( \neg p_1 \equiv \neg p_1 \).
+
+	      HI: para \( n = k, k  \in \mathbb{N} \): \( \neg (p_1 \lor p_2 \lor \mathellipsis \lor p_k) \equiv \neg p_1 \land \neg p_2 \land \mathellipsis \land \neg p_k \)
+
+	      TI: para \( n = k + 1 \): \( \neg (p_1 \lor p_2 \lor \mathellipsis \lor p_k \lor p_{k+1}) \equiv \neg p_1 \land \neg p_2 \land \mathellipsis \land \neg p_k \land \neg p_{k+1}\)
+
+	      \( \bullet \) Tomando a HI e adicionando \( \land \neg p_{k+1} \):
+
+	      \[  \neg (p_1 \lor p_2 \lor \mathellipsis \lor p_k) \land \neg p_{k+1} \equiv \neg p_1 \land \neg p_2 \land \mathellipsis \land \neg p_k \land \neg p_{k+1} \]
+
+	      \( \bullet \) Aplicando De Morgan para \( p = (p_1 \lor p_2 \lor \mathellipsis \lor p_k) \) e \( q = p_{k+1} \):
+
+	      \[ \neg ((p_1 \lor p_2 \lor \mathellipsis \lor p_k) \lor p_{k+1} ) \equiv \neg p_1 \land \neg p_2 \land \mathellipsis \land \neg p_k \land \neg p_{k+1} \]
+
+	      \( \bullet \) Removendo os parênteses internos do lado esquerdo (pois o $\lor$ não depende de parênteses), concluímos a TI.
+
+	\item
+
+	      \begin{enumerate}
+
+		      \item \( P(8) = 1 \cdot 3 + 1 \cdot 5,  P(9) = 3 \cdot 3, P(10) = 2 \cdot 5 \).
+
+		      \item Para todo \( k \mid 8 \leq k < n \), vale \( P(k): \exists a,b \in \mathbb{N} \mid k = a \cdot 3 + b \cdot 5\).
+
+		      \item Que dada a hipótese indutiva é possível concluir que \( P(n) \) é verdadeira.
+
+		      \item Não é preciso fazer nada para mostrar \( P(10) \), esse é um caso base. Supondo \( k > 10 \), podemos argumentar pela hipótese indutiva que para \( m = k - 3 \), \( P(m) \) é valida, ou seja, \( m = a_m \cdot 3 + b_m \cdot 5 \). Então:
+		            \[ k = (a_m + 1) \cdot 3 + b_m \cdot 5 \]
+		            Assim mostramos a TI.
+
+		      \item Dado que a proposição é válida para os casos iniciais e que é possível usar os casos base para mostrar que \( P(n) \) é verdadeira para todo \( n \geq 11 \), então a proposição é verdadeira.
+
+	      \end{enumerate}
+
+	\item *** Para \( n = 1 \), temos: \( 1 = 2^0 \) e para \( n = 2 \), temos: \( 2 = 2^1 \). Suponha que todo \( m \mid 1 \leq m \leq k \) tem uma representação binária. Se \( k + 1 \) for ímpar, basta tomar a representação binária de \( n = k \) e adicionar \( 2^0 \) (podemos fazer isso porque \( k \) é par, ou seja, não pode conter \( 2^0 \)). Se \( k + 1 \) for par, exclua o bit 0, e para os bits seguintes se eles estiverem presentes, os remova, repita até o número terminar ou encontrar um bit ausente. O resultado, mantendo os outros bits, vai ser uma representação binária única. (Basicamente incremento em binário).
+
+	\item Para uma barra de um quadradinho, não é preciso quebrar, e para uma barra de 2 quadradinhos, uma quebra é suficiente. Suponha que a HI vale para \( n = k \) e vamos mostrar que a proposição também vale para uma barra de \( n = k + 1 \) quadradinhos. Pois bem, basta considerar que o quadradinho 1 na barra \( k \) são 2 quadradinhos, de modo que são feitos \( k - 1 \) cortes para se separar todos os quadrados, excluindo o que é ``duplo'', e para separá-lo, é necessário um corte adicional, totalizando \( k \) cortes para uma barra de tamanho \( k + 1 \). \textit{not really indução forte...}
+
+	\item Esse argumento é inválido pois não funciona para \( n = 2 \), porque a pessoa do começo não necessariamente vai ter a mesma cor de olhos que a última (esse argumento toma como hipótese implícita que as ``filas'' de pessoas do começo e do fim se sobrepõe).
+
+\end{enumerate}
+
+\end{document}

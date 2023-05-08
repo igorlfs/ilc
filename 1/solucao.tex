@@ -1,0 +1,307 @@
+\documentclass[12pt]{article}
+\usepackage{indentfirst} %% Indente o primeiro parágrafo
+\usepackage{amsfonts} %% Conjuntos
+\usepackage{setspace} %% Necessário para usar as quotes
+%%\usepackage{etoolbox} ?
+%%\usepackage{amssymb}
+\usepackage{amssymb} %% QED
+\usepackage{enumitem}
+\let\biconditional\leftrightarrow
+\setlist{  listparindent=\parindent }
+\AtBeginEnvironment{quote}{\par\singlespacing\small} %% Faz citações terem formatação diferente
+\title{Lista 0.1}
+\author{Igor Lacerda}
+\begin{document}
+\maketitle
+\section*{Nota}
+Fazendo mais uma vez em \LaTeX. Em algum momento começo a usar papel.
+
+Algumas notações que decidi adotar na lista: \textit{representar verdadeiro com 1 e falso com 0.}
+
+\section*{Revisão (1) + Exercícios}
+\begin{enumerate}
+    \item 
+        \begin{enumerate}
+            \item Uma proposição é uma frase declarativa (afirmação) que pode assumir somente um entre os dois valores, normalmente chamados de verdadeiro e falso.
+
+            \item Uma proposição condicional é um tipo de proposição composta (ou seja, uma proposição contruída a partir do uso de conectivos), formada a partir de duas proposições \( p,q \) e o conectivo \( \to \):
+
+                \[ p \to q \]
+
+                Ela é definida como falsa \textit{somente se} \( p \) for verdadeira e \( q \) for falsa. Desse modo, pode ser entendida como uma abreviação da proposição composta 
+
+                \[ \neg p \lor q \] 
+
+                Analisemos esse fato com o uso de uma \textit{tabela verdade}:
+                \begin{center}
+                    \begin{tabular}{||c c c c c||} 
+                        \hline
+                        \( p \)  & \( q \)  & \( p \to q \)  & \( \neg p \) & \( \neg p \lor q\)  \\ [0.5ex] 
+                        \hline\hline
+                        0 & 0 & 1 & 1 & 1 \\ 
+                        \hline
+                        0 & 1 & 1 & 1 & 1 \\
+                        \hline
+                        1 & 0 & 0 & 0 & 0 \\
+                        \hline
+                        1 & 1 & 1 & 0 & 1 \\ [1ex]
+                        \hline
+                    \end{tabular}
+                \end{center}
+
+                Vemos que a terceira e a última coluna possuem os mesmo valores, logo as proposições são equivalentes. Para entender melhor a relação criada na condicional, podemos entender que, como visto nas aulas, ela é false se \textit{q é ``menos verdadeira'' que p}.
+
+            \item 
+                \begin{itemize}
+                    \item q se p;
+                    \item se p então q;
+                    \item p implica q;
+                    \item p é suficiente para q;
+                    \item q é necessário para p.
+                \end{itemize}
+        \end{enumerate}
+    \item 
+        \begin{enumerate}
+            \item É proposição (verdaeira);
+            \item É proposição (falsa);
+            \item É proposição (verdadeira);
+            \item É proposição (falsa);
+            \item \textbf{Não} é proposição;
+            \item \textbf{Não} é proposição;
+        \end{enumerate}
+    \item Escreva:
+
+        \begin{center}
+            p: “Nadar na praia em Nova Jersey é permitido”
+
+            q: “Foram descobertos tubarões perto da praia”, 
+        \end{center}
+
+        \begin{enumerate}
+            \item \( \neg q \): \textbf{Não} foram descobertos tubarões perto da praia.
+
+            \item \( p \land q \): Nadar na praia em Nova Jersey é permitido \textbf{e} foram descobertos tubarões perto da praia.
+
+            \item \( \neg p \lor q \): Nadar na praia em Nova Jersey \textbf{não} é permitido \textbf{ou} foram descobertos tubarões perto da praia
+
+            \item \( p \to \neg q \): Se nadar na praia em Nova Jersey é permitido, então não foram descobertos tubarões perto da praia
+
+            \item \( p \biconditional q \): Nadar na praia em Nova Jersey é permitido se, e somente se não foram descobertos tubarões perto da praia.
+
+            \item \( \neg p \land (p \lor \neg q) \) Nadar na praia em Nova Jersey \textbf{não} é permitido \textbf{e} nadar na praia em Nova Jersey é permitido \textbf{ou} \textbf{não} foram encontrados descobertos tubarões perto da praia
+        \end{enumerate}
+
+    \item Escreva:
+        \begin{center}
+            p: “Está abaixo de zero”
+
+            q: “Está nevando”
+        \end{center}
+        \begin{enumerate}
+            \item \( p \land q \)
+            \item \( p \land \neg q \) 
+            \item \( \neg p \land \neg q \) 
+            \item \( q \lor p \) 
+            \item \( p \to q \) 
+            \item \( p \oplus q \) 
+            \item \( p \biconditional q \) 
+        \end{enumerate}
+
+    \item Dados:
+        \begin{center}
+            p: “Ursos-cinzentos são vistos na área.”
+
+            q: “Fazer caminhada na trilha é seguro.”
+
+            r: “As bagas estão maduras ao longo da trilha.”
+        \end{center}
+        \begin{enumerate}
+            \item \( r \land \neg p \) 
+            \item \( (\neg p \land q) \land r\)
+            \item \( (r \to q) \biconditional (\neg p) \) 
+            \item \( (\neg q) \land (\neg p \land r) \) 
+            \item \( (\neg r \land \neg p) \to q \) 
+            \item \( (r \land p) \to \neg q  \) 
+        \end{enumerate}
+    \item 
+        \begin{enumerate}
+            \item Falsa. Hipótese verdadeira \( 1 + 1 = 2 \), mas tese falsa \( 2 + 2 = 5\);
+            \item Verdadeira. Hipótese falsa \( 1 + 1 = 3 \);
+            \item Verdadeira. Hipótese falsa \( 1 + 1 = 3 \);
+            \item Verdaderia. Hipótese falsa (macacos podem voar).
+        \end{enumerate}
+    \item 
+        \begin{enumerate}
+            \item Para cursar matemática discreta, você deve ter tido cálculo ou um curso de ciência da computação.
+
+                \textbf{INCLUSIVO} Para cursar matemática discreta, você deve ter tido cálculo ou um curso de ciência da computação ou ambos.
+
+                \textbf{EXCLUSIVO} Para cursar matemática discreta, você deve ter tido cálculo ou um curso de ciência da computação mas não pode ter feito ambos.
+
+                Eu acredito que o autor quis usar o ou \textbf{inclusivo}. 
+
+            \item Quando você compra um novo carro da Companhia Acme Motor, você pega de volta \$ 2.000 ou um empréstimo de 2\%.
+
+                \textbf{INCLUSIVO} Quando você compra um novo carro da Companhia Acme Motor, você pega de volta \$ 1.000 ou um empréstimo de 2\% ou pega ambos os benefícios.
+
+                \textbf{EXCLUSIVO}  Quando você compra um novo carro da Companhia Acme Motor, você pega de volta \$ 2.000 ou um empréstimo de 2\% mas não pode pegar ambos os benefícios.
+
+                Eu acredito que o autor quis usar o ou \textbf{exclusivo}. 
+        \end{enumerate}
+    \item \textit{Nota do estudante:} além do ``se'' \textit{tradicional} do se ... então, foi usado ``se'' para \textit{se flexionar os verbos.}
+        \begin{enumerate}
+            \item Se o vento sopra do nordeste, então neva.
+            \item Se se chegou ao topo de Long's Park, então foram andadas 8 milhas.
+            \item Se se é famoso mundialmente, então se é efetivado como professor. 
+            \item Se você comprou um seu aparelho de som há menos de 90 dias, então a sua garantia é válida.
+            \item Se a água não estiver muito fria, então Jan nadará.
+        \end{enumerate}
+    \item 
+        %%\textbf{TODO:} incluir isso no resumo;
+        \begin{enumerate}
+            \item Se nevar hoje, esquiarei amanhã.
+
+                \textbf{OPOSTA} Se esquiarei amanhã, então neva hoje.
+
+                \textbf{CONTRAPOSITIVA} Se não esquiarei amanhã então não neva hoje.
+
+                \textbf{INVERSA} Se não nevar hoje, então não esquiarei amanhã.
+
+            \item Eu venho à aula sempre que há uma prova.
+
+                \textbf{OPOSTA} Se eu venho à aula então há uma prova.
+
+                \textbf{CONTRAPOSITIVA} Se não venho à aula então não há uma prova.
+
+                \textbf{INVERSA} Se não há uma prova então eu não venho à aula.
+        \end{enumerate}
+    \item 
+        \begin{enumerate}
+            \item \( (p \lor \neg q) \to q  \) 
+                \begin{center}
+                    \begin{tabular}{||c c c c c||} 
+                        \hline
+                        \( p \)  & \( q \)  & \( \neg q\)  & \( p \lor \neg q \) & \( (p \lor \neg q) \to q  \)  \\ [0.5ex] 
+                        \hline\hline
+                        0 & 0 & 1 & 1 & 0 \\ 
+                        \hline
+                        0 & 1 & 0 & 0 & 1 \\
+                        \hline
+                        1 & 0 & 1 & 1 & 0 \\
+                        \hline
+                        1 & 1 & 0 & 1 & 1 \\ [1ex]
+                        \hline
+                    \end{tabular}
+                \end{center}
+            \item \( (p \to q) \biconditional (\neg q \to \neg p) \) 
+                \begin{center}
+                    \begin{tabular}{||c c c c c c c||} 
+                        \hline
+                        \( p \)  & \( q \)  & \( \neg p \)  & \( \neg q\) & \( p \to q  \) & \( \neg q \to \neg p \) & \( (p \to q ) \biconditional (\neg q \to \neg p )  \)   \\ [0.5ex]
+                        \hline\hline
+                        0 & 0 & 1 & 1 & 1 & 1 & 1\\ 
+                        \hline
+                        0 & 1 & 1 & 0 & 1 & 1 & 1\\
+                        \hline
+                        1 & 0 & 0 & 1 & 0 & 0 & 1\\
+                        \hline
+                        1 & 1 & 0 & 0 & 1 & 1 & 1\\ [1ex]
+                        \hline
+                    \end{tabular}
+                \end{center}
+            \item \( (p \oplus q) \to (p \land q)  \) 
+                \begin{center}
+                    \begin{tabular}{||c c c c c ||} 
+                        \hline
+                        \( p \)  & \( q \) & \( p \oplus q  \) & \( p \land  q \) & \( (p \oplus q) \to (p \land q)  \)   \\ [0.5ex]
+                        \hline\hline
+                        0 & 0 & 0 & 0 & 1 \\ 
+                        \hline
+                        0 & 1 & 1 & 0 & 0 \\
+                        \hline
+                        1 & 0 & 1 & 0 & 0 \\
+                        \hline
+                        1 & 1 & 0 & 1 & 1 \\ [1ex]
+                        \hline
+                    \end{tabular}
+                \end{center}
+        \end{enumerate}
+    \item 
+        \begin{enumerate}
+            \item \( 11000 \land (01011 \lor 11011 ) \) 
+
+                \(01011 \lor 11011 = 11011\) 
+
+                \( \Rightarrow 11011 \land 11000 = 11000\) 
+
+            \item \( (01010 \oplus 11011) \oplus 01000\) 
+
+                \( 01010 \oplus 11011 = 10001 \) 
+
+                \( \Rightarrow 10001 \oplus 01000 = 11001\) 
+
+        \end{enumerate}
+    \item 
+        Proposições atômicas:
+
+        \begin{itemize}
+            \item p := O sistema está no estado multiusuário.
+            \item q := O sistema está operando normalmente.
+            \item r := O kernel está funcionando.
+            \item s := O sistema está no modo interrupção.
+        \end{itemize}
+
+        Proposições do sistema:
+        \begin{itemize}
+            \item \( p \biconditional q\) 
+            \item \( p \to r \) 
+            \item \( r \lor s \) 
+            \item \( \neg p \to s \) 
+            \item \( \neg s \) 
+        \end{itemize}
+
+        Fazendo a tabela verdade com os requisitos:
+        \begin{center}
+            \begin{tabular}{|c c c c c c c c c c|} 
+                \hline
+                \( p \)  & \( q \) & \( r \) & \( s \) & \( \neg p \) & \( \neg s \) & \( p \biconditional q \) & \( p \to r \) & \( r \lor s \) & \( \neg p \to s \)  \\ [0.5ex]
+                \hline\hline
+                0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 0 & 0\\ 
+                \hline
+                0 & 0 & 0 & 1 & 1 & 0 & 1 & 1 & 1 & 1\\
+                \hline
+                0 & 0 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 0\\
+                \hline
+                0 & 0 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1\\
+                \hline
+                0 & 1 & 0 & 0 & 1 & 1 & 0 & 1 & 0 & 0\\ 
+                \hline
+                0 & 1 & 0 & 1 & 1 & 0 & 0 & 1 & 1 & 1\\
+                \hline
+                0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 1 & 0\\
+                \hline
+                0 & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 1 & 1\\
+                \hline
+                1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1\\ 
+                \hline
+                1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 1\\
+                \hline
+                1 & 0 & 1 & 0 & 0 & 1 & 0 & 1 & 1 & 1\\
+                \hline
+                1 & 0 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 1\\
+                \hline
+                1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1\\ 
+                \hline
+                1 & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 1 & 1\\
+                \hline
+                1 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+                \hline
+                1 & 1 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1\\ [1ex]
+                \hline
+            \end{tabular}
+        \end{center}
+
+        Como a penúltima linha atende todos os requisitos, esse sistema \textbf{é consistente}.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,262 @@
+\documentclass{article} 
+
+\usepackage{graphicx} %% Imagens
+\usepackage{float} %% Coloque imagens em lugares apropriados, ie H
+\usepackage{hyperref}       %% Use links
+\usepackage{indentfirst}    %% Indente o primeiro parágrafo
+\usepackage{amsfonts}       %% Conjuntos
+\usepackage{amssymb}        %% QED
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}        % Encoding para português 
+\usepackage{lmodern}            % Conserta a fonte para PT
+\usepackage[portuguese]{babel}  % Português
+\usepackage{hyphenat}           % Use hifens corretamente
+
+\hyphenation{mate-mática recu-perar}
+
+\graphicspath{{./img}}
+
+\newcommand{\qed}{\hfill\rule{1ex}{1ex}}
+
+\author{Igor Lacerda Faria}
+
+\begin{document}
+
+\title{\textbf{Lista de Exercícios 10}}
+
+\date{%
+Departamento de Ciência da Computação - Universidade Federal de Minas Gerais (UFMG) - Belo Horizonte - MG - Brasil \\ [3ex]
+\href{mailto:igorlfs@ufmg.br}{\nolinkurl{igorlfs@ufmg.br}}
+}
+
+\maketitle
+
+\begin{enumerate}
+
+	\section*{Revisão}
+
+	\item
+
+	      \begin{enumerate}
+
+		      \item Existem \( 2^{2^n} \) funções Booleanas de \( n \) variáveis.
+
+		      \item Isso significa que o conjunto pode ser usado para representar todas as funções Booleanas. Um conjunto funcionamelmente completo com 3 operadores é \( \{+,\cdot,\overline{\phantom{A}} \} \), com 2 operadores temos \( \{+, \overline{\phantom{X}}\} \) e com um operador, \( \{\mid\} \), o \textit{famoso} NAND.
+
+	      \end{enumerate}
+
+	      \section*{Exercícios}
+
+	\item
+	      \begin{enumerate}
+
+		      \item  \( (1 \cdot 1 ) + (\overline{0 \cdot 1 } + 0) = 1 + (\overline{0} + 0) = 1 + (1 + 0) = 1 \). Simplificando, como o lado esquerdo é 1 de cara, então a soma é 1.
+
+		      \item \( (T \land T ) \lor (\neg (F \land T) \lor F) \equiv T\)
+
+	      \end{enumerate}
+
+	\item Tabelas.
+	      \begin{enumerate}
+
+		      \addtocounter{enumii}{1}
+		      \item
+
+		            \begin{center}
+			            \begin{tabular}{|c c c || c c|}
+				            \hline
+				            \( x \) & \( z \) & \( y \) & \( yz \) & \( x + yz \) \\ [0.5ex]
+				            \hline\hline
+				            0       & 0       & 0       & 0        & 0            \\
+				            \hline
+				            0       & 0       & 1       & 0        & 0            \\
+				            \hline
+				            0       & 1       & 0       & 0        & 0            \\
+				            \hline
+				            0       & 1       & 1       & 1        & 1            \\
+				            \hline
+				            1       & 0       & 0       & 0        & 1            \\
+				            \hline
+				            1       & 0       & 1       & 0        & 1            \\
+				            \hline
+				            1       & 1       & 0       & 0        & 1            \\
+				            \hline
+				            1       & 1       & 1       & 1        & 1            \\ [1ex]
+				            \hline
+			            \end{tabular}
+		            \end{center}
+
+		      \item
+
+		            \begin{center}
+			            \begin{tabular}{|c c c c c c|}
+				            \hline
+				            \( x \) & \( z \) & \( y \) & \( x \overline{y}  \) & \( \overline{xyz}  \) & \( x \overline{y} + \overline{xyz} \) \\ [0.5ex]
+				            \hline\hline
+				            0       & 0       & 0       & 0                     & 1                     & 1                                     \\ \hline
+				            0       & 0       & 1       & 0                     & 1                     & 1                                     \\
+				            \hline
+				            0       & 1       & 0       & 0                     & 1                     & 1                                     \\
+				            \hline
+				            0       & 1       & 1       & 0                     & 1                     & 1                                     \\
+				            \hline
+				            1       & 0       & 0       & 1                     & 1                     & 1                                     \\
+				            \hline
+				            1       & 0       & 1       & 0                     & 1                     & 1                                     \\
+				            \hline
+				            1       & 1       & 0       & 1                     & 1                     & 1                                     \\
+				            \hline
+				            1       & 1       & 1       & 0                     & 0                     & 0                                     \\
+				            \hline
+			            \end{tabular}
+		            \end{center}
+
+	      \end{enumerate}
+
+	\item Tabela.
+	      \begin{center}
+		      \begin{tabular}{|c c c c c|}
+			      \hline
+			      \( x \)                            & \( z \)             & \( y \) & \( x \overline{y} + y
+			      \overline{z} + \overline{x} z   \) & \( \overline{x} y +
+			      \overline{y} z + x \overline{z}   \)                                                           \\ [0.5ex]
+			      \hline\hline
+			      0                                  & 0                   & 0       & 0                     & 0 \\ \hline
+			      0                                  & 0                   & 1       & 1                     & 1 \\
+			      \hline
+			      0                                  & 1                   & 0       & 0                     & 0 \\
+			      \hline
+			      0                                  & 1                   & 1       & 1                     & 1 \\
+			      \hline
+			      1                                  & 0                   & 0       & 1                     & 1 \\
+			      \hline
+			      1                                  & 0                   & 1       & 1                     & 1 \\
+			      \hline
+			      1                                  & 1                   & 0       & 1                     & 1 \\
+			      \hline
+			      1                                  & 1                   & 1       & 0                     & 0 \\
+			      \hline
+		      \end{tabular}
+	      \end{center}
+
+	\item
+
+	      \begin{enumerate}
+
+		      \item \( x \cdot y \)
+
+		      \item \( \overline{x} + \overline{y} \)
+
+		      \item \( (x + y + z) \cdot (\overline{x} + \overline{y} +
+		            \overline{z}) \)
+
+		      \item \( (x + \overline{z} ) \cdot (x + 1) \cdot (\overline{x} + 0) \)
+
+	      \end{enumerate}
+
+	\item \( x \overline{y} \overline{z} \overline{w} + \overline{x} y
+	      \overline{z} \overline{w} + \overline{x} \overline{y} z \overline{w}
+	      + \overline{x} yzw + x \overline{y} zw + xy \overline{z} w + xyz
+	      \overline{w}\)
+
+	\item
+	      \begin{enumerate}
+
+		      \item \( \overline{\overline{x} \cdot \overline{y} \cdot
+			            \overline{z}} \)
+
+		      \item \( \overline{ \overline{x} \cdot \overline{\overline{y} \cdot (
+			            \overline{ x \cdot \overline{z}}})} \)
+
+	      \end{enumerate}
+
+	\item \( \overline{(xy)} + (\overline{z} +x) \)
+
+	      \newpage
+	\item Construindo a tabela verdade:
+	      \begin{center}
+		      \begin{tabular}{|c c c c | c|}
+			      \hline
+			      \( x_1 \) & \( x_0 \) & \( y_1 \) & \( y_0 \) & \( t\) \\ [0.5ex]
+			      \hline\hline
+			      0         & 0         & 0         & 0         & 0      \\
+			      \hline
+			      0         & 0         & 0         & 1         & 0      \\
+			      \hline
+			      0         & 0         & 1         & 0         & 0      \\
+			      \hline
+			      0         & 0         & 1         & 1         & 0      \\
+			      \hline
+			      0         & 1         & 0         & 0         & 1      \\
+			      \hline
+			      0         & 1         & 0         & 1         & 0      \\
+			      \hline
+			      0         & 1         & 1         & 0         & 0      \\
+			      \hline
+			      0         & 1         & 1         & 1         & 0      \\
+			      \hline
+			      1         & 0         & 0         & 0         & 1      \\
+			      \hline
+			      1         & 0         & 0         & 1         & 1      \\
+			      \hline
+			      1         & 0         & 1         & 0         & 0      \\
+			      \hline
+			      1         & 0         & 1         & 1         & 0      \\
+			      \hline
+			      1         & 1         & 0         & 0         & 1      \\
+			      \hline
+			      1         & 1         & 0         & 1         & 1      \\
+			      \hline
+			      1         & 1         & 1         & 0         & 1      \\
+			      \hline
+			      1         & 1         & 1         & 1         & 0      \\
+			      \hline
+		      \end{tabular}
+	      \end{center}
+
+	      Assim, podemos facilmente escrever a forma normal disjuntiva:
+	      \[ \overline{x_1} x_0 \overline{y_1} \overline{y_0} + x_1 \overline{x_0} \overline{y_1} \overline{y_0} + x_1 \overline{x_0} \overline{y_1} y_0 + x_1 x_0 \overline{y_1} \overline{y_0} + x_1 x_0 \overline{y_1} y_0 + x_1 x_0 y_1 \overline{y_0}  \]
+
+
+	\item
+	      \begin{enumerate}
+
+		      \item \( wxyz + wx \overline{y} z + wx \overline{yz} + w \overline{x} y \overline{z} + w \overline{xy} z \)
+
+		            \begin{tabular}{c | c | c | c | c|}
+			            \(   \)              & \( yz \) & \( y \overline{z} \) & \( \overline{yz} \) & \( \overline{y} z\) \\ [0.5ex]
+			            \hline
+			            \( wx \)             & 1        &                      & 1                   & 1                   \\
+			            \hline
+			            \( w \overline{x} \) &          & 1                    &                     & 1                   \\
+			            \hline
+			            \( \overline{wx} \)  &          &                      &                     &                     \\
+			            \hline
+			            \( \overline{w} x \) &          &                      &                     &                     \\
+			            \hline
+		            \end{tabular}
+
+		            Então temos a seguinte simplificação: \( wxyz + wx \overline{y} + w \overline{y} z + w \overline{x} y \overline{z} \)
+
+		      \item \( wxyz + wxy \overline{z} + wx \overline{y} z + w \overline{xy} z + w \overline{xyz} + \overline{w} x \overline{y} z + \overline{wx} y \overline{z} + \overline{wxy} z\)
+
+		            \begin{tabular}{c | c | c | c | c|}
+			            \(   \)              & \( yz \) & \( y \overline{z} \) & \( \overline{yz} \) & \( \overline{y} z\) \\ [0.5ex]
+			            \hline
+			            \( wx \)             & 1        & 1                    &                     & 1                   \\
+			            \hline
+			            \( w \overline{x} \) &          &                      & 1                   & 1                   \\
+			            \hline
+			            \( \overline{wx} \)  &          & 1                    &                     & 1                   \\
+			            \hline
+			            \( \overline{w} x \) &          &                      &                     & 1                   \\
+			            \hline
+		            \end{tabular}
+
+		            Então temos a seguinte simplificação: \( \overline{y} z + w \overline{xy} + w xy + \overline{wx} y \overline{z} \)
+	      \end{enumerate}
+
+\end{enumerate}
+
+\end{document}

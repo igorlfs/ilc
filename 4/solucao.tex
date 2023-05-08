@@ -1,0 +1,220 @@
+\documentclass[leqno]{article} %% Alinhe num equações à esquerda
+%%\usepackage{etoolbox}
+%%\usepackage{amssymb}
+\usepackage{hyperref}       %% Use links
+\usepackage{indentfirst}    %% Indente o primeiro parágrafo
+\usepackage{amsfonts}       %% Conjuntos
+\usepackage{amssymb}        %% QED
+\usepackage{amsmath}
+\usepackage{enumitem}
+\let\biconditional\leftrightarrow
+\setlist{  listparindent=\parindent }
+\AtBeginEnvironment{quote}{\par\singlespacing\small} %% Faz citações terem formatação diferente
+\author{Igor Lacerda Faria}
+\begin{document}
+
+\title{\textbf{Lista de Exercícios 0.4}}
+\date{%
+    \( ^1 \)Departamento de Ciência da Computação - Universidade Federal de Minas Gerais (UFMG) - Belo Horizonte - MG - Brasil \\ [3ex]
+    \href{mailto:igorlfs@ufmg.br}{\nolinkurl{igorlfs@ufmg.br}}
+}
+\maketitle
+\begin{enumerate}
+
+    \item
+
+        \begin{enumerate}
+
+            \item Um argumento lógico é um tipo de argumento composto por um conjunto de \( n \) proposições lógicas e que possui a propriedade de que se as \( n - 1 \) primeiras proposições (as chamadas premissas) forem verdadeiras, então a proposição restante (chamada conclusão) também é verdadeira. O exemplo canônico disso é a seguinte colocação:
+
+                \begin{itemize}
+
+                    \item[p:] Todo homem é mortal.
+
+                    \item[q:] Sócrates é homem.
+
+                \end{itemize}
+
+                Partindo do pressuposto que \( p \) e \( q \) são verdadeiras, podemos concluir \( r: \) Sócrates é mortal.
+
+            \item Um argumento válido é aquele em que ao se tomar suas premissas como verdadeiras, sua conclusão é \textbf{necessariamente} verdaeira. Por outro lado, um argumento inválido é aquele que \textit{apesar de poder ser verdadeiro,} sua veracidade \textbf{não é garantida} pela veracidade de suas premissas.
+
+            \item É possível que argumento válido tenha uma conclusão falsa ao se tomar como verdadeira uma premissa que na realidade é falsa. A validade do argumento não diz respeito ao conteúdo das proposições em si, mas à sua estrutura dentro da lógica.
+
+            \item Uma falácia lógica é uma colocação que \textit{parece} um argumento válido mas não é. Devido à minha falta de criatividade hoje, irei apenas citar os exemplos vistos em aula: 
+
+                \begin{itemize}
+
+                    \item \textbf{Falácia da afirmação da conclusão} 
+
+                        \noindent Exemplo: Todo natural é inteiro. -1 é inteiro. Logo -1 é natural.
+
+                        Aqui temos algo como: \( \forall x : (P(x) \to Q(x)) \), \( Q(a) \) e concluímos \( P(a) \). Sabendo que \( Q(a) \), no caso, que dado número é inteiro, não podemos afirmar nada do antecedente: ele pode tanto ser verdadeiro como falso. No exemplo, o número pode ser natural ou negativo.
+
+                    \item \textbf{Falácia da negação do antecedente} 
+
+                        \noindent Exemplo: Todo natural é inteiro. -1 não é natural. Logo -1 não é inteiro.
+
+                        Aqui temos algo como: \( \forall x : (P(x) \to Q(x)) \), \( \neg P(a) \) e concluímos \( \neg Q(a) \). Negando o antencedente, o condicional não introduz nenhuma informação nova, então não podemos afirmar nada sobre \( Q(a) \). 
+
+                \end{itemize}
+
+        \end{enumerate}
+
+    \item 
+        \begin{enumerate}
+            \item Adição conjuntiva: \( p \Rightarrow p \lor q \)
+            \item Simplificação conjuntiva: \( p \land q \Rightarrow  p \)
+            \item Modus Ponens: \( p \to q, p \Rightarrow q \)
+            \item Modus Tollens: \( p \to q, \neg q \Rightarrow \neg p \)
+            \item Silogismo hipotético: \( p \to q, q \to r \Rightarrow p \to r\)
+        \end{enumerate}
+
+    \item
+
+        \begin{enumerate}
+
+            \item 
+
+                \begin{itemize}
+
+                    \item[p:] Eu tiro o dia de folga
+
+                    \item[q:] Chove no dia
+
+                    \item[r:] Neva no dia
+
+                \end{itemize}
+
+                Para \( T \) terça e \( Q \) quinta, temos:
+
+                \begin{align}
+                     &\forall x : (p(x) \to (q(x) \lor r(x))) &\textrm{Premissa} \\
+                     &p(T) \lor p(Q) &\textrm{Premissa} \\
+                     &\neg q(T) \land \neg r(T) \footnote{Se fez sol, não choveu nem nevou} &\textrm{Premissa} \\
+                     &\neg r(Q) &\textrm{Premissa} \\
+                     &\neg p(T) &\textrm{(1), (3), Modus Tollens} \\
+                     &p(Q) &\textrm{(2), (5), Silogismo Disjuntivo} \\
+                     &q(Q) \lor r(Q) &\textrm{(6), (1), Modus Ponens Universal} \\
+                     &q(Q) &\textrm{(7), (4), Silogismo Disjuntivo}
+                \end{align}
+
+                \( \therefore \) A pessoa em questão tirou folga somente na quinta, e choveu nesse dia.
+
+            \item 
+
+                \begin{itemize}
+
+                    \item[C:] Eu como comida apimentada
+
+                    \item[S:] Eu tenho sonhos estranhos
+
+                    \item[T:] Troveja enquanto durmo
+
+                \end{itemize}
+
+                \setcounter{equation}{0}% Restart equation counter
+                \begin{align}
+                     &C \to S &\textrm{Premissa} \\
+                     &T \to S&\textrm{Premissa} \\
+                     &\neg S &\textrm{Premissa} \\
+                     &\neg C &\textrm{Modus Tollens: (1), (3)} \\
+                     &\neg T &\textrm{Modus Tollens: (2), (3)}
+                \end{align}
+
+                \( \therefore \) Não trovejou nem choveu nessa noite e nem comi comida apimentada.
+
+            \item
+
+                \begin{itemize}
+
+                    \item[E:] Eu sou esperto
+
+                    \item[S:] Eu sou sortudo
+
+                    \item[L:] Eu ganho na loteria
+
+                \end{itemize}
+
+                \setcounter{equation}{0}% Restart equation counter
+                \begin{align}
+                     &E \lor S &\textrm{Premissa} \\
+                     &\neg S &\textrm{Premissa} \\
+                     &S \to L&\textrm{Premissa} \\
+                     &E &\textrm{Silogismo disjuntivo (1), (2)}
+                \end{align}
+
+                \( \therefore \) Eu sou esperto.
+                %% Perceba que não posso afirmar que não sou sortudo, apesar de parecer muito o caso.
+
+            \item
+
+                \begin{itemize}
+
+                    \item[r(x):] x é roedor
+
+                    \item[c(x):] x rói a própria comida
+
+                    \item[T:] \( \forall x: (r(x) \to c(x)) \)
+
+                \end{itemize}
+
+                Para \( R \) ratos, \( C \) coelhos e \( M \) morcegos, temos:
+
+                \setcounter{equation}{0}% Restart equation counter
+                \begin{align}
+                     &\forall x: (r(x) \to c(x)) &\textrm{Premissa} \\
+                     &r(R) &\textrm{Premissa} \\
+                     &\neg c(C)&\textrm{Premissa} \\
+                     &\neg r(M)&\textrm{Premissa} \\
+                     &c(R) &\textrm{Modus Ponens Universal: (1), (2)} \\
+                     &\neg r(C) &\textrm{Modus Tollens Universal: (1), (3)}
+                \end{align}
+
+                \( \therefore \) Ratos roem sua própria comida e coelhos não são roedores.
+                %% Perceba que não posso afirmar que morcegos não roem a própria comida (tenho a negação do antecedente).
+        \end{enumerate}
+
+    \item 
+
+        \begin{enumerate}
+
+            \item Modus Ponens Universal;
+            %% Uau, o livro tem toda uma argumentação pra isso
+
+            \item Generalização existencial, instanciação universal.
+            %% Uau, o livro tem toda uma argumentação pra isso
+
+        \end{enumerate}
+
+    \item 
+
+        \begin{enumerate}
+
+            \item Esse argumento está correto. Se \( P(x) \) para todo \( x \) no domínio então \( P(c) \) para um \( c \) particular.
+
+            \item Incorreto. Natasha pode estar cursando Matemática Discreta mas ser de outro curso, sem contradizer a condição de que todo estudante de CC faz a matéria.
+
+            \item Incorreto. Raciocínio análogo ao anterior. Se não vale a condição, o condicional não dá nenhuma informação.
+
+            \item Correto. Modus Tollens.
+
+        \end{enumerate}
+
+    \item 
+
+        \begin{enumerate}
+
+            \item Inválido. Isso é um exmeplo de falácia de \textit{afirmação da conclusão}. Saber a conclusão não dá informações sobre o antecedente.
+
+            \item Válido. Modus Tollens.
+
+            \item Inválido. Isso é um exemplo de falácia de \textit{negaçõa do antecedente}. Negar o antecedente torna a condicional ``inútil''.
+
+        \end{enumerate}
+
+    \item O erro nesse argumento está no passo 6, de adição conjuntiva de (3) e (5). O problema aqui, que muitas vezes é cometido por falta de atenção, é que o \( c \) de \( P(c) \) não é, necessariamente, o mesmo \( c \) de \( Q(c) \). Para evitar esse tipo de erro, é útil usar uma notação diferente para cada variável dentro de um \textit{escopo} (como uma questão ou item de questão). Por exemplo, pode-se usar índices: \( \exists c_1 : P(c_1) \) e \( \exists c_2 : Q(c_2) \). Se (6) estivesse correto, então a dedução de (7) seria válida.
+
+\end{enumerate}
+
+\end{document}
